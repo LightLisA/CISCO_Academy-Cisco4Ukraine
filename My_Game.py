@@ -1,6 +1,6 @@
 from random import randrange
 import math
-import cisco
+#import cisco
 
 print("The GUESSING game has begun")
 print("----------------------------------")
