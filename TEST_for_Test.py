@@ -12,23 +12,14 @@ class Point:
     def gety(self):
         return self.__var_Y
 
+    def distance_from_xy(self, x, y):
+        return math.hypot(abs(self.__var_X - x), abs(self.__var_Y - y))
 
-class Triangle:
-    def __init__(self, vertice1, vertice2, vertice3):
-        self.__v_A_x = Point.getx(vertice1)
-        self.__v_A_y = Point.gety(vertice1)
-
-        self.__v_B_x = Point.getx(vertice2)
-        self.__v_B_y = Point.gety(vertice2)
-
-        self.__v_C_x = Point.getx(vertice3)
-        self.__v_C_y = Point.gety(vertice3)
-
-    def perimeter(self):
-        return math.sqrt((self.__v_B_x - self.__v_A_x) ** 2 + (self.__v_B_y - self.__v_A_y) ** 2) + \
-               math.sqrt((self.__v_C_x - self.__v_A_x) ** 2 + (self.__v_C_y - self.__v_A_y) ** 2) + \
-               math.sqrt((self.__v_B_x - self.__v_C_x) ** 2 + (self.__v_B_y - self.__v_C_y) ** 2)
+    def distance_from_point(self, point):
+        return self.distance_from_xy(point.getx(), point.gety())
 
 
-triangle = Triangle(Point(0, 0), Point(1, 0), Point(0, 1))
-print(triangle.perimeter())
+point1 = Point(0, 0)
+point2 = Point(1, 1)
+print(point1.distance_from_point(point2))
+print(point2.distance_from_xy(2, 0))
