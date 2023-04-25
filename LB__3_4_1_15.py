@@ -15,7 +15,6 @@ class Point:
 
 class Triangle:
     def __init__(self, vertice1, vertice2, vertice3):
-<<<<<<< HEAD
         self.__v_A_x = Point.getx(vertice1)
         self.__v_A_y = Point.gety(vertice1)
 
@@ -29,7 +28,6 @@ class Triangle:
         return math.sqrt((self.__v_B_x - self.__v_A_x) ** 2 + (self.__v_B_y - self.__v_A_y) ** 2) + \
                math.sqrt((self.__v_C_x - self.__v_A_x) ** 2 + (self.__v_C_y - self.__v_A_y) ** 2) + \
                math.sqrt((self.__v_B_x - self.__v_C_x) ** 2 + (self.__v_B_y - self.__v_C_y) ** 2)
-=======
         self.var1 = vertice1
         self.var2 = vertice2
         self.var3 = vertice3
@@ -44,7 +42,6 @@ class Triangle:
 
         Perimeter = var_1_2 + var_1_3 + var_2_3
         return Perimeter
->>>>>>> origin/master
 
 
 triangle = Triangle(Point(0, 0), Point(1, 0), Point(0, 1))
