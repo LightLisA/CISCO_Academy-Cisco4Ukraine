@@ -30,3 +30,6 @@ except IOError as e:
 print(total,'byte(s) succesfully written')
 src.close()
 dst.close()
+
+# C:\Users\Aleksey\Desktop\newtext.txt
+# C:\Users\Aleksey\Desktop\file.txt
