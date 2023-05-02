@@ -13,5 +13,45 @@
 #       The letters may be keys while the counters can be values.
 #
 
+# C:\Users\Aleksey\Desktop\text.txt
+# C:\Users\olly1215\Desktop\text.txt
+
+from os import strerror
+
+# srcname = input("Enter the source file name: ")
+srcname = 'C:\\Users\\olly1215\\Desktop\\text.txt'
+try:
+    src = open(srcname, 'rt', encoding='utf-8')
+except IOError as e:
+    print("Cannot open the source file: ", strerror(e.errno))
+    exit(e.errno)
 
 
+dictionary_with_num = {}
+
+try:
+    readin = src.read()
+    for key in readin:
+        cnt = 0
+        lowKey = key.lower()
+        if lowKey in dictionary_with_num:
+            continue
+        else:
+            if lowKey.isalpha():
+                for chart in readin:
+                    lowChart = chart.lower()
+                    if lowKey == lowChart:
+                        cnt += 1
+                dictionary_with_num[lowKey] = cnt
+            else:
+                continue
+    src.close()
+except IOError as e:
+    print("Cannot create the destination file: ", strerror(e.errno))
+    exit(e.errno)
+
+dictList = sorted(dictionary_with_num.keys())
+for i in dictList:
+    print(str(i) + " --> " + str(dictionary_with_num[i]))
+
+src.close()
