@@ -21,28 +21,28 @@ from os import strerror
 # srcname = input("Enter the source file name: ")
 srcname = 'C:\\Users\\olly1215\\Desktop\\text.txt'
 try:
-    src = open(srcname, 'rt', encoding='utf-8')
+    src = open(srcname, 'rt', encoding='utf-8')         # відкриваю файл; rt - читаю текст;
 except IOError as e:
     print("Cannot open the source file: ", strerror(e.errno))
     exit(e.errno)
 
 
-dictionary_with_num = {}
+dictionary_with_num = {}                                # створюю пустий словник
 
 try:
-    readin = src.read()
+    readin = src.read()                                 # читаю файл
     for key in readin:
-        cnt = 0
-        lowKey = key.lower()
+        cnt = 0                                         # створюю сщотчик
+        lowKey = key.lower()                            # перевожу все в нижній регістр
         if lowKey in dictionary_with_num:
-            continue
+            continue                                    # якщо запис уже є в словнику. то скіпаю його
         else:
-            if lowKey.isalpha():
+            if lowKey.isalpha():                        # якщо символ є буквою, то ...
                 for chart in readin:
                     lowChart = chart.lower()
-                    if lowKey == lowChart:
+                    if lowKey == lowChart:              # порівнюю перше значення із файлу, з усіма символами у файлі
                         cnt += 1
-                dictionary_with_num[lowKey] = cnt
+                dictionary_with_num[lowKey] = cnt       # записую в словник
             else:
                 continue
     src.close()
@@ -50,8 +50,8 @@ except IOError as e:
     print("Cannot create the destination file: ", strerror(e.errno))
     exit(e.errno)
 
-dictList = sorted(dictionary_with_num.keys())
-for i in dictList:
+dictList = sorted(dictionary_with_num.keys())           # зробив у алфавітному порядку словник
+for i in dictList:                                      # вивожу словник на екран
     print(str(i) + " --> " + str(dictionary_with_num[i]))
 
-src.close()
+src.close()                                             # закриваю сесію - ОБОВ'ЯЗКОВО
