@@ -54,7 +54,7 @@ for i in sorted_values:
             sorted_dict[k] = dictionary_with_num[k]'''
 
 # СОРТІРОВКА ПО ЗМЕНШЕНЮ ЗНАЧЕННЯ : reverse=True
-sorted_dict = {k: b for k, b in sorted(
+sorted_dict = {k: v for k, v in sorted(
     dictionary_with_num.items(), key=lambda element: element[1], reverse=True)}
 
 for i in sorted_dict:  # вивожу словник на екран
