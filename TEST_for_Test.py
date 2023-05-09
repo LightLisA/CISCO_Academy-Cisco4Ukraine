@@ -1,6 +1,6 @@
-def myfunc(n):
-  return lambda a : a * n
+z = 2
+y = 1
 
-mytripler = myfunc(3)
-
-print(mytripler(11))
+print(y<z or z>y)
+print(y>z or z<y)
+print(y < z or z>y and y>z or z<y)

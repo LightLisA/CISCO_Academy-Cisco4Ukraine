@@ -31,14 +31,73 @@ Note:
 
 Tip: Use a dictionary to store the students' data.
 """
+from os import strerror
+import sys
+
 
 class StudentsDataException(Exception):
     pass
 
 
 class BadLine(StudentsDataException):
-    # Write your code here.
+    def bad_value(self, value):
+        if not value.isalpha() and not value.isdigit() and value != '\t' and value != '.' and value != ' ' \
+                and value != '\n':
+            print("File has incorrect characteristics! ->: {}".format(value))
+            sys.exit()
 
 
 class FileEmpty(StudentsDataException):
-    # Write your code here.
+    def empty_file(self, filename):
+        try:
+            myfile = open(filename)
+        except IOError:  # FileNotFoundError in Python 3
+            print("File not found: {}".format(filename))
+            sys.exit()
+
+        contents = myfile.read()
+        myfile.close()
+
+        if not contents:
+            print("{} : File is EMPTY!".format(filename))
+            sys.exit()
+
+
+emptyclass = FileEmpty()
+badchart = BadLine()
+
+student_dictionary = {}
+try:
+    file_name = 'C:\\Users\\olly1215\\Desktop\\empty_file.txt'
+    openfile = open(file_name, 'rt')
+    lines = openfile.readlines(20)
+
+    emptyclass.empty_file(file_name)
+
+    while len(lines) != 0:
+        for line in lines:
+            key = ''
+            value = ''
+            for ch in line:
+                badchart.bad_value(ch)
+                if ch.isalpha() or ch == '\t':
+                    if ch == '\t':
+                        key += ' '
+                    else:
+                        key += ch
+                elif ch.isdigit() or ch == '.':
+                    value += ch
+
+            if key in student_dictionary:
+                student_dictionary[key] = float(student_dictionary[key]) + float(value)
+            else:
+                student_dictionary[key] = value
+        lines = openfile.readlines(10)
+    openfile.close()
+except IOError as e:
+    print("Cannot create the destination file: ", strerror(e.errno))
+    exit(e.errno)
+
+sorted_dictionary = sorted(student_dictionary.keys())  # зробив у алфавітному порядку словник
+for i in sorted_dictionary:  # вивожу словник на екран
+    print(i + " " + str(student_dictionary[i]))
