@@ -68,6 +68,7 @@ badchart = BadLine()
 
 student_dictionary = {}
 try:
+    # file_name = input("Enter the source file name: ")
     file_name = 'C:\\Users\\olly1215\\Desktop\\empty_file.txt'
     openfile = open(file_name, 'rt')
     lines = openfile.readlines(20)
