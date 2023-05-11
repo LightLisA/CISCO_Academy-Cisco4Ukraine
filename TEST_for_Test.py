@@ -1,6 +1,10 @@
-z = 2
-y = 1
+import os
+import platform
 
-print(y<z or z>y)
-print(y>z or z<y)
-print(y < z or z>y and y>z or z<y)
+
+print(os.name)
+print(platform.uname())
+print()
+print()
+print()
+print()

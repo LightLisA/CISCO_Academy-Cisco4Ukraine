@@ -28,20 +28,20 @@ class Triangle:
         return math.sqrt((self.__v_B_x - self.__v_A_x) ** 2 + (self.__v_B_y - self.__v_A_y) ** 2) + \
                math.sqrt((self.__v_C_x - self.__v_A_x) ** 2 + (self.__v_C_y - self.__v_A_y) ** 2) + \
                math.sqrt((self.__v_B_x - self.__v_C_x) ** 2 + (self.__v_B_y - self.__v_C_y) ** 2)
-        self.var1 = vertice1
-        self.var2 = vertice2
-        self.var3 = vertice3
 
-    def perimeter(self):
-        var_1_2 = math.sqrt(math.pow(Point.getx(self.var2) - Point.getx(self.var1), 2) \
-                                 + math.pow(Point.gety(self.var2) - Point.gety(self.var1), 2))
-        var_1_3 = math.sqrt(math.pow(Point.getx(self.var3) - Point.getx(self.var1), 2) \
-                                 + math.pow(Point.gety(self.var3) - Point.gety(self.var1), 2))
-        var_2_3 = math.sqrt(math.pow(Point.getx(self.var3) - Point.getx(self.var2), 2) \
-                                 + math.pow(Point.gety(self.var3) - Point.gety(self.var2), 2))
+    #     self.var1 = vertice1
+    #     self.var2 = vertice2
+    #     self.var3 = vertice3
 
-        Perimeter = var_1_2 + var_1_3 + var_2_3
-        return Perimeter
+    #     var_1_2 = math.sqrt(math.pow(Point.getx(self.var2) - Point.getx(self.var1), 2) \
+    #                         + math.pow(Point.gety(self.var2) - Point.gety(self.var1), 2))
+    #     var_1_3 = math.sqrt(math.pow(Point.getx(self.var3) - Point.getx(self.var1), 2) \
+    #                         + math.pow(Point.gety(self.var3) - Point.gety(self.var1), 2))
+    #     var_2_3 = math.sqrt(math.pow(Point.getx(self.var3) - Point.getx(self.var2), 2) \
+    #                         + math.pow(Point.gety(self.var3) - Point.gety(self.var2), 2))
+    #
+    #     Perimeter = var_1_2 + var_1_3 + var_2_3
+    #     return Perimeter
 
 
 triangle = Triangle(Point(0, 0), Point(1, 0), Point(0, 1))
